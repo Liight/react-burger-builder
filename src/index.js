@@ -8,7 +8,9 @@ import * as serviceWorker from './serviceWorker';
 
 // Enabled Routing
 const app = (
-    <BrowserRouter><App /></BrowserRouter>
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
 );
 
 ReactDOM.render(app, document.getElementById('root'));
