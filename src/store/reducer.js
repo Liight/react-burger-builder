@@ -10,16 +10,26 @@ const initialState = {
     totalPrice: 4
 };
 
+// Set ingredient prices here in the reducer
+const INGREDIENT_PRICES = {
+    salad: 0.5,
+    cheese: 0.4,
+    meat: 1.3,
+    bacon: 0.7
+}
+
 const reducer = (state = initialState, action) => {
+    // returns a new version of the state with an updated ingredient (immutably)
+    // also updates the total price of the burger
     switch (action.type){
         case actionTypes.ADD_INGREDIENT:
-        // returns a new version of the state with an updated ingredient (immutably)
         return {
             ...state, // no deep clone hence, copying ingredients object below
             ingredients: {
                 ...state.ingredients,
                 [action.ingredientName]: state.ingredients[action.ingredientName] + 1
-            }
+            },
+            totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName]
         }
     case actionTypes.REMOVE_INGREDIENT:
         return {
@@ -27,7 +37,8 @@ const reducer = (state = initialState, action) => {
             ingredients: {
                 ...state.ingredients,
                 [action.ingredientName]: state.ingredients[action.ingredientName] - 1
-            }
+            },
+            totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName]
         }
     
     default:
