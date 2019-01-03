@@ -12,7 +12,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type){
-        case action.type.ADD_INGREDIENT:
+        case actionTypes.ADD_INGREDIENT:
         // returns a new version of the state with an updated ingredient (immutably)
         return {
             ...state, // no deep clone hence, copying ingredients object below
@@ -21,7 +21,7 @@ const reducer = (state = initialState, action) => {
                 [action.ingredientName]: state.ingredients[action.ingredientName] + 1
             }
         }
-    case action.type.REMOVE_INGREDIENT:
+    case actionTypes.REMOVE_INGREDIENT:
         return {
             ...state, // no deep clone hence, copying ingredients object below
             ingredients: {
