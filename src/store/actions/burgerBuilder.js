@@ -39,7 +39,7 @@ export const fetchIngredientsFailed = () => {
 // redux-thunk allows us to execute async code with action creators
 export const initIngredients = () => {
     return dispatch => {
-        axios.get(axios.baseURL + '/ingredients.json')
+        axios.get(axios.defaults.baseURL + 'ingredients.json')
             .then(response => {
                 dispatch(setIngredients(response.data));
             })
