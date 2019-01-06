@@ -1,5 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
+// note setting ingredients to null will result in an error on the order summary page if navigated to without ingredients
+// this error is handled by rerirecting the user if ingredients are null
 const initialState = {
     ingredients: null,
     totalPrice: 4,
