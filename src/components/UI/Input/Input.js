@@ -52,11 +52,11 @@ const input = (props) => {
     let validationError = null;
     if (props.invalid && props.touched) {
         validationError = <p className={classes.ValidationError}>Please enter a valid {props.valueType}</p>;
-        console.log(props.valueType)
+        // console.log(props.valueType)
     }
 
     //console.log(props.valueType)
-    console.log('touched', props.touched)
+    // console.log('touched', props.touched)
 
     return (
     <div className={classes.Input}>

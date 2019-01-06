@@ -4,7 +4,7 @@ import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 import { withRouter } from 'react-router-dom';
 
 const burger = (props) => {
-    console.log('[BurgerProps]', props);
+    //console.log('[BurgerProps]', props);
     // transforming an object of key: value pairs to an array of burger components
     // Returns an array from the props object passed into this component
     let transformedIngredients = Object.keys(props.ingredients)
@@ -24,7 +24,7 @@ const burger = (props) => {
             transformedIngredients = <p>Please start adding ingredients</p>
         }
 
-    console.log(transformedIngredients)
+    // console.log(transformedIngredients)
 
     return (
         <div className={classes.Burger}>

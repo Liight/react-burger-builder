@@ -89,8 +89,7 @@ class ContactData extends Component {
                     },
                     value: 'fastest',
                     validation: {},
-                    valid: true,
-                    touched: false
+                    valid: true
                 },
         },
         formIsValid: false
@@ -207,9 +206,9 @@ class ContactData extends Component {
 
 const mapStateToProps = state => {
     return {
-        ings: state.ingredients,
-        price: state.totalprice,
-        loading: state.loading
+        ings: state.burgerBuilder.ingredients,
+        price: state.burgerBuilder.totalprice,
+        loading: state.order.loading
     }
 };
 
