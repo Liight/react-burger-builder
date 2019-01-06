@@ -39,7 +39,13 @@ const reducer = (state = initialState, action) => {
     case actionTypes.SET_INGREDIENTS:
         return {
             ...state, // copies state shallowly
-            ingredients: action.ingredients,
+            ingredients: {
+                salad: action.ingredients.salad,
+                bacon: action.ingredients.bacon,
+                cheese: action.ingredients.cheese,
+                meat: action.ingredients.meat
+            }, // sets the ingredient order manually as firebase db has sorted them alphabetically
+            // drawback is now we have now hardcoded out set of ingredients and must support this hardcoding till a more dynamic approach is implemented
             error: false
         };
     case actionTypes.FETCH_INGREDIENTS_FAILED:
