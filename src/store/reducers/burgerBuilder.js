@@ -48,6 +48,7 @@ const reducer = (state = initialState, action) => {
                 meat: action.ingredients.meat
             }, // sets the ingredient order manually as firebase db has sorted them alphabetically
             // drawback is now we have now hardcoded out set of ingredients and must support this hardcoding till a more dynamic approach is implemented
+            totalprice: 4,
             error: false
         };
     case actionTypes.FETCH_INGREDIENTS_FAILED:
