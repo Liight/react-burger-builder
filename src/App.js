@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Layout from './hoc/Layout/Layout';
@@ -39,4 +39,4 @@ const mapDispatchToprops = dispatch => {
   }
 };
 
-export default connect(null, mapDispatchToprops)(App);
+export default withRouter(connect(null, mapDispatchToprops)(App));
