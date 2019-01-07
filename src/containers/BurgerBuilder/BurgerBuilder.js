@@ -37,7 +37,7 @@ class BurgerBuilder extends Component {
 
     // Shows the modal if purchasing and authenticated
     purchaseHandler = () => {
-        if(this.props.token){
+        if(this.props.isAuthenticated){
             this.setState({purchasing:true})
         } else {
             this.props.onSetAuthRedirectPath('/checkout');
