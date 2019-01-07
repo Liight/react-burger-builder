@@ -37,7 +37,8 @@ class Auth extends Component {
                 minLength: 6,
                 touched: false
             },
-        }
+        },
+        isSignup: true
     };
 
     // CheckValidity checks various validation rules to protect from spam and malicious attacks
@@ -88,10 +89,16 @@ class Auth extends Component {
         this.setState({controls: updatedControls})
     };
 
+    switchAuthModeHandler = () => {
+        this.setState(prevState => {
+            return {isSignup: !prevState.isSignup};
+        })
+    };
+
     // Handles the form submission
     submitHandler = (event) => {
         event.preventDefault();
-        this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value);
+        this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value, this.state.isSignup);
     };
 
     render () {
@@ -130,6 +137,9 @@ class Auth extends Component {
                     {form}
                     <Button btnType="Success">SUBMIT</Button>
                 </form>
+                <Button 
+                    clicked={this.switchAuthModeHandler}
+                    btnType="Danger">SWITCH TO {this.state.isSignup ? 'SIGN IN' : 'SIGN UP'}</Button>
             </div>
         );
     }
@@ -137,7 +147,7 @@ class Auth extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth: (email, password) => dispatch(actions.auth(email, password))
+        onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password))
     };
 };
 
