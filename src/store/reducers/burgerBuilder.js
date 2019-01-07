@@ -1,4 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
+import { updateObject } from '../utility';
 
 // note setting ingredients to null will result in an error on the order summary page if navigated to without ingredients
 // this error is handled by rerirecting the user if ingredients are null
@@ -16,46 +17,46 @@ const INGREDIENT_PRICES = {
     bacon: 0.7
 }
 
+
+
 const reducer = (state = initialState, action) => {
     // returns a new version of the state with an updated ingredient (immutably)
     // also updates the total price of the burger
+
+    // Note: The VS Code IDE does nto recognise the unreachable code in the switch statement
+    // because of this the REMOVE_INGREDIENT have been short-names to make them unique
     switch (action.type){
         case actionTypes.ADD_INGREDIENT:
-        return {
-            ...state, // no deep clone hence, copying ingredients object below
-            ingredients: {
-                ...state.ingredients,
-                [action.ingredientName]: state.ingredients[action.ingredientName] + 1
-            },
+        const updatedIngredient = { [action.ingredientName]: state.ingredients[action.ingredientName] + 1 };
+        const updatedIngredients = updateObject(state.ingredients, updatedIngredient)
+        const updatedState = {
+            ingredients: updatedIngredients,
             totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName]
-        }
+        };
+        return updateObject(state, updatedState)
     case actionTypes.REMOVE_INGREDIENT:
-        return {
-            ...state, // no deep clone hence, copying ingredients object below
-            ingredients: {
-                ...state.ingredients,
-                [action.ingredientName]: state.ingredients[action.ingredientName] - 1
-            },
+        const updatedIng = { [action.ingredientName]: state.ingredients[action.ingredientName] + 1 };
+        const updatedIngs = updateObject(state.ingredients, updatedIng)
+        const updatedSt = {
+            ingredients: updatedIngs,
             totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName]
-        }
+        };
+        return updateObject(state, updatedSt)
     case actionTypes.SET_INGREDIENTS:
-        return {
-            ...state, // copies state shallowly
+        return updateObject(state, { 
             ingredients: {
                 salad: action.ingredients.salad,
                 bacon: action.ingredients.bacon,
                 cheese: action.ingredients.cheese,
                 meat: action.ingredients.meat
-            }, // sets the ingredient order manually as firebase db has sorted them alphabetically
-            // drawback is now we have now hardcoded out set of ingredients and must support this hardcoding till a more dynamic approach is implemented
-            totalprice: 4,
+        },
+            totalPrice: 4,
             error: false
-        };
+        });
+        // sets the ingredient order manually as firebase db has sorted them alphabetically
+        // drawback is now we have now hardcoded out set of ingredients and must support this hardcoding till a more dynamic approach is implemented
     case actionTypes.FETCH_INGREDIENTS_FAILED:
-        return {
-            ...state, // copies state shallowly
-            error: true
-        };
+        return updateObject(state, {error: true});
     default:
         return state;
     }

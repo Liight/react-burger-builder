@@ -16,7 +16,7 @@ import * as actions from '../../store/actions/index';
 class BurgerBuilder extends Component {
 
     state = {
-        purchasing: false,
+        purchasing: false
     }
 
     componentDidMount () {
