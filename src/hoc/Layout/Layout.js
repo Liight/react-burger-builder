@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Aux from '../_Aux/_Aux';
 import classes from './Layout.css';
@@ -24,8 +25,11 @@ class Layout extends Component {
     render () {
         return (
             <Aux>
-                <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler} />
+                <Toolbar 
+                isAuth={this.props.isAuthenticated}
+                drawerToggleClicked={this.sideDrawerToggleHandler} />
                 <SideDrawer 
+                isAuth={this.props.isAuthenticated}
                     closed={this.sideDrawerClosedHandler}
                     open={this.state.showSideDrawer} />
                 <main className={classes.Content}>
@@ -36,4 +40,11 @@ class Layout extends Component {
     }
 };
 
-export default Layout;
+// Checks if the user is authenticated or not via the presense of a token from the google firebase api upon login
+const mapStateToprops = state => {
+    return {
+        isAuthenticated: state.auth.token !== null
+    };
+};
+
+export default connect(mapStateToprops)(Layout);
