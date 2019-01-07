@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
+import Spinner from '../../components/UI/Spinner/Spinner';
 import classes from './Auth.css';
 import * as actions from '../../store/actions/index';
 
@@ -115,7 +116,7 @@ class Auth extends Component {
 
         // Iterate over the formElementsArray and
         // Set a static form variable as a dynamically generated set of Input elements
-        const form = formElementsArray.map(formElement => (
+        let form = formElementsArray.map(formElement => (
             <Input 
                 key={formElement.id}
                 elementType={formElement.config.elementType} 
@@ -129,10 +130,23 @@ class Auth extends Component {
             />
         ));
 
+        // Shows a spinner when state.loading is true
+        if (this.props.loading){
+            form = <Spinner />;
+        }
+
+        let errorMessage = null;
+        if (this.props.error){
+            errorMessage = (
+                <p>{this.props.error.message}</p>
+            );
+        }
+
         // Return the form variable within a form element wrapped in a div
         // Add a Submit Button element below the form variable but within the HTML form element
         return (
             <div className={classes.Auth}>
+            {errorMessage}
                 <form onSubmit={this.submitHandler}>
                     {form}
                     <Button btnType="Success">SUBMIT</Button>
@@ -145,10 +159,17 @@ class Auth extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        loading: state.auth.loading,
+        error: state.auth.error
+    };
+};
+
 const mapDispatchToProps = dispatch => {
     return {
         onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password))
     };
 };
 
-export default connect(null, mapDispatchToProps)(Auth);
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);
