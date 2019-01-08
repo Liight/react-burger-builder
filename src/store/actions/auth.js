@@ -61,7 +61,7 @@ export const auth = ( email, password, isSignup ) => {
                 // Set some local storage for persistant session data
                 localStorage.setItem('token', response.data.idToken)
                 localStorage.setItem('expirationDate', expirationDate)
-                localStorage.setItem('userId', response.data.localid)
+                localStorage.setItem('userId', response.data.localId)
                 dispatch(authSuccess(response.data.idToken, response.data.localId));
                 dispatch(checkAuthTimeout(response.data.expiresIn))
             })

@@ -7,6 +7,7 @@ import Button from '../../components/UI/Button/Button';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import classes from './Auth.css';
 import * as actions from '../../store/actions/index';
+import { updateObject } from '../../shared/utility';
 
 
 class Auth extends Component {
@@ -86,15 +87,13 @@ class Auth extends Component {
     // Creates an updated form where the elements are updated to handle input and changes
     // Changes to the form inputs should update the local component state
     inputChangedHandler = (event, controlName) => {
-        const updatedControls = {
-            ...this.state.controls,
-            [controlName]: {
-                ...this.state.controls[controlName],
+        const updatedControls = updateObject(this.state.controls, {
+            [controlName]: updateObject(this.state.controls[controlName],{
                 value: event.target.value,
                 valid: this.checkValidity(event.target.value, this.state.controls[controlName]),
                 touched: true
-            }
-        };
+            } )
+        });
         this.setState({controls: updatedControls})
     };
 
