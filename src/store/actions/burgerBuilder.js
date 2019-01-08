@@ -41,7 +41,6 @@ export const initIngredients = () => {
     return dispatch => {
         axios.get(axios.defaults.baseURL + 'ingredients.json')
             .then(response => {
-                // console.log('[Axios response data]', response.data);
                 dispatch(setIngredients(response.data));
             })
             .catch(error => {

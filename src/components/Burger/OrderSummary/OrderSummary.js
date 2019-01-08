@@ -4,12 +4,6 @@ import Aux from '../../../hoc/_Aux/_Aux';
 import Button from '../../UI/Button/Button';
 
 class OrderSummary extends Component {
-    // This could be a fuctional component, doesn't have to be a class
-
-    componentWillUpdate () {
-        // console.log('[OrderSummary] Will Update')
-    }
-
     render () {
 
         const ingredientSummary = Object.keys(this.props.ingredients)
@@ -19,7 +13,6 @@ class OrderSummary extends Component {
                     <span style={{textTransform: 'capitalize'}}>{igKey}</span>: {this.props.ingredients[igKey]}
                 </li> );
         } );
-
         return (
             <Aux>
                 <h3>Your Order</h3>
@@ -35,7 +28,5 @@ class OrderSummary extends Component {
         )
     }
 }
-
-
 
 export default OrderSummary;
