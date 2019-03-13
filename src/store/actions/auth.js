@@ -41,6 +41,7 @@ export const checkAuthTimeout = (expirationTime) => {
 };
 
 export const auth = ( email, password, isSignup ) => {
+    
     return dispatch => {
         dispatch(authStart());
         const authData = {
@@ -49,6 +50,7 @@ export const auth = ( email, password, isSignup ) => {
             returnSecureToken: true
         };
         // Sign up new user
+        console.log('isSignup value after being passed into auth', isSignup)
         let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyAucKkt6q6rABAh3s4W5eKOgc__dYAYGdc';
         if(!isSignup){
             // Sign in existing user

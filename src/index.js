@@ -34,7 +34,7 @@ const store = createStore(
 // Enabled Routing
 const app = (
     <Provider store ={store}>
-        <BrowserRouter>
+        <BrowserRouter baseUrl="/BurgerBuilder">
             <App />
         </BrowserRouter>
     </Provider>

@@ -39,7 +39,7 @@ class Auth extends Component {
                 valid: false,
                 minLength: 6,
                 touched: false
-            },
+            }
         },
         isSignup: true
     };
@@ -68,11 +68,13 @@ class Auth extends Component {
         this.setState(prevState => {
             return {isSignup: !prevState.isSignup};
         })
+        // this.setState({isSignup: !this.state.isSignup})
     };
 
     // Handles the form submission
     submitHandler = (event) => {
         event.preventDefault();
+        // console.log('isSignup value before', this.state.isSignup)
         this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value, this.state.isSignup);
     };
 
@@ -151,7 +153,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password)),
+        onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup)),
         onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/'))
     };
 };
