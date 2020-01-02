@@ -64,6 +64,7 @@ class Auth extends Component {
         this.setState({controls: updatedControls})
     };
 
+    // Switches Authentication for the user to sign up or sign in
     switchAuthModeHandler = () => {
         this.setState(prevState => {
             return {isSignup: !prevState.isSignup};
