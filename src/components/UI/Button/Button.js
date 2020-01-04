@@ -14,7 +14,7 @@ const styles = () => ({
     },
     button: {
         backgroundColor: "inherit",
-        width: "250px",
+        width: "auto",
         textAlign: "center"
     }
 });
