@@ -5,6 +5,10 @@ export const updateObject = (oldObject, updatedProperties) => {
     };
 };
 
+export const getDimensions = () => {
+    return {height: window.innerHeight, width: window.innerWidth}
+}
+
 
 
     // CheckValidity checks various validation rules to protect from spam and malicious attacks

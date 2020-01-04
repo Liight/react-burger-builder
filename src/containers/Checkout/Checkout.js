@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import classes from './Checkout.css';
 
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
 import ContactData from '../Checkout/ContactData/ContactData';
@@ -20,7 +21,7 @@ class Checkout extends Component {
         if (this.props.toppings){
             const purchasedRedirect = this.props.purchased ? <Redirect to="/" /> : null;
             summary = (
-                <div>
+                <div className={classes.checkoutContainer}>
                     {purchasedRedirect}
                     <CheckoutSummary 
                         ingredients={this.props.toppings} 

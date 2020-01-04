@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Burger.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 import { withRouter } from 'react-router-dom';
+import { getDimensions } from '../../shared/utility';
 
 const burger = (props) => {
     // transforming an object of key: value pairs to an array of burger components
@@ -23,7 +24,7 @@ const burger = (props) => {
             transformedIngredients = <p>Please start adding ingredients</p>
         }
     return (
-        <div className={classes.Burger}>
+        <div className={classes.Burger} style={{ height: getDimensions.height }}>
             <BurgerIngredient type="bread-top" />
             {transformedIngredients}
             <BurgerIngredient type="bread-bottom" />
