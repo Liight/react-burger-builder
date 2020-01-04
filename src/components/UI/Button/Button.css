@@ -10,6 +10,10 @@
     font-weight: bold;
 }
 
+.Button:hover{
+    cursor: pointer;
+}
+
 /* .Button:first-of-type {
     margin-left: 0;
     padding-left: 0;
@@ -27,4 +31,3 @@
 .Danger {
     color: #944317 !important;
 }
-
