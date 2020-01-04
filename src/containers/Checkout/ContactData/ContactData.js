@@ -3,13 +3,24 @@ import { connect } from 'react-redux';
 
 import axios from '../../../axios-orders';
 import Button from '../../../components/UI/Button/Button';
-import classes from './ContactData.css';
+import customStyles from './ContactData.css';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import Input from '../../../components/UI/Input/Input';
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
 import * as actions from '../../../store/actions/index';
 
 import { updateObject, checkValidity } from '../../../shared/utility';
+
+// Material UI 
+import { withStyles } from "@material-ui/styles";
+import 'typeface-roboto';
+import Typography from '@material-ui/core/Typography';
+
+const styles = () => ({
+    typography: {
+        fontSize: "1.5em",
+    }
+});
 
 class ContactData extends Component {
     state = {
@@ -138,6 +149,7 @@ class ContactData extends Component {
     }
 
     render () {
+        const { classes } = this.props;
         const formElementsArray = [];
         for (let key in this.state.orderForm) {
             formElementsArray.push({
@@ -146,7 +158,7 @@ class ContactData extends Component {
             });
         }
         let form = (
-                <form onSubmit={this.orderHandler}>
+            <form onSubmit={this.orderHandler} className={customStyles.form}>
                     {formElementsArray.map(formElement => (
                         <Input 
                             key={formElement.id}
@@ -166,8 +178,8 @@ class ContactData extends Component {
             form = <Spinner />
         }
         return (
-            <div className={classes.ContactData}>
-                <h4>Enter your Contact Data</h4>
+            <div className={customStyles.ContactData}>
+                <Typography className={classes.typography}><h4>Enter your Contact Data</h4></Typography>
                 {form}
             </div>
         );
@@ -190,4 +202,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(withErrorHandler(ContactData, axios));
+export default withStyles(styles)(connect(mapStateToProps,mapDispatchToProps)(withErrorHandler(ContactData, axios)));
