@@ -42,11 +42,11 @@ class Layout extends Component {
     }
 };
 
-// Checks if the user is authenticated or not via the presense of a token from the google firebase api upon login
-const mapStateToprops = state => {
+// Checks if the user is authenticated or not via the prescence of a token from the google firebase api upon login
+const mapStateToProps = state => {
     return {
         isAuthenticated: state.auth.token !== null
     };
 };
 
-export default connect(mapStateToprops)(Layout);
+export default connect(mapStateToProps)(Layout);

@@ -8,6 +8,8 @@ import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder'
 import Logout from './containers/Auth/Logout/Logout';
 import * as actions from './store/actions/index';
 
+import CssBaseline from '@material-ui/core/CssBaseline'
+
 const asyncCheckout = asyncComponent(() => {
   return import('./containers/Checkout/Checkout');
 });
@@ -50,6 +52,7 @@ class App extends Component {
 
     return (
       <div>
+        <CssBaseline />
         <Layout>
           {routes}
         </Layout>

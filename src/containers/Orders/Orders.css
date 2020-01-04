@@ -1,10 +1,21 @@
 .ordersContainer {
     width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (min-width: 300px) and (min-height: 400px) {
-    .Burger {
-        width: 300px;
-        height: 200px;
+    .ordersContainer {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (min-width: 500px) and (min-height: 500px) {
+    .ordersContainer {
+        width: 500px;
+        height: auto;
     }
 }
