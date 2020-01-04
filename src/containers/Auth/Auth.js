@@ -9,6 +9,21 @@ import classes from './Auth.css';
 import * as actions from '../../store/actions/index';
 import { updateObject, checkValidity } from '../../shared/utility';
 
+// Material UI
+import { withStyles } from "@material-ui/styles";
+import 'typeface-roboto';
+import Typography from '@material-ui/core/Typography';
+
+
+const styles = () => ({
+    typography: {
+        fontSize: "1.6em"
+    },
+    button: {
+        backgroundColor: "red",
+
+    }
+});
 
 class Auth extends Component {
     state = {
@@ -132,7 +147,9 @@ class Auth extends Component {
             {errorMessage}
                 <form onSubmit={this.submitHandler}>
                     {form}
-                    <Button btnType="Success">SUBMIT</Button>
+                    <Button
+                    classes={this.props.classes.button}
+                    btnType="Success" clicked={this.submitHandler}>SUBMIT</Button>
                 </form>
                 <Button 
                     clicked={this.switchAuthModeHandler}
@@ -159,4 +176,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth);
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(Auth));
