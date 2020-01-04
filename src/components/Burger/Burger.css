@@ -9,6 +9,10 @@
     font-size: 1.2rem;
 }
 
+.Burger p {
+    font-size: 1.4em;
+}
+
 /* ::-webkit-scrollbar {
     height: 0;
     /* remove scrollbar space */
