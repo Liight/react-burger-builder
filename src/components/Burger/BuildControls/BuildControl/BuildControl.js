@@ -1,17 +1,34 @@
 import React from 'react';
-import classes from './BuildControl.css';
+import customStyles from './BuildControl.css';
+
+// Material UI
+import { withStyles } from "@material-ui/styles";
+import 'typeface-roboto';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+// import Paper from '@material-ui/core/Paper';
+
+const styles = () => ({
+    typography: {
+        fontSize: "1.4em"
+    },
+    button: {
+    }
+});
 
 const buildControl = (props) => (
-    <div className={classes.BuildControl}>
-        <div className={classes.Label}>{props.label}</div>
-        <button 
-            className={classes.Less} 
+    <div className={customStyles.BuildControl}>
+        <div className={customStyles.Label}><Typography className={props.classes.typography}>{props.label}</Typography></div>
+        <Button 
+            className={[customStyles.Less]} 
             onClick={props.removed} 
-            disabled={props.disabled}>Less</button>
-        <button 
-            className={classes.More} 
-            onClick={props.added}>More</button>
+            disabled={props.disabled}
+            aria-label="less"><Typography className={props.classes.typography}>Less</Typography></Button>
+        <Button 
+            className={[customStyles.More]} 
+            onClick={props.added}
+                aria-label="more"><Typography className={props.classes.typography}>More</Typography></Button>
     </div>
 );
 
-export default buildControl;
+export default withStyles(styles)(buildControl);

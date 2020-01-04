@@ -1,7 +1,14 @@
 import React from 'react'
-import classes from './BuildControls.css'
+import customStyles from './BuildControls.css'
 import BuildControl from './BuildControl/BuildControl';
     
+// Material UI
+import { withStyles } from "@material-ui/styles";
+import 'typeface-roboto';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+// import Paper from '@material-ui/core/Paper';
+
 const controls = [
     { label: 'Salad', type: 'salad'},
     { label: 'Bacon', type: 'bacon'},
@@ -9,9 +16,19 @@ const controls = [
     { label: 'Meat', type: 'meat'}
 ];
 
+const styles = () => ({
+    typography: {
+        fontSize: "1.6em"
+    },
+    button: {
+        backgroundColor: "#FFC72C",
+        width: "250px",
+    }
+});
+
 const buildControls = (props) => (
-    <div className={classes.BuildControls}>
-        <p>Current Price: <strong>{props.price.toFixed(2)}</strong></p>
+    <div className={customStyles.BuildControls}>
+        <Typography className={props.classes.typography}>Current Price: <strong>{props.price.toFixed(2)}</strong></Typography>
         {controls.map((ctrl)=>(
             <BuildControl 
                 key={ctrl.label} 
@@ -20,11 +37,11 @@ const buildControls = (props) => (
                 removed={() => props.ingredientRemoved(ctrl.type)} 
                 disabled={props.disabled[ctrl.type]} />
         ))}
-        <button 
-            className={classes.OrderButton}
+        <Button 
+            className={[customStyles.OrderButton, props.classes.button]}
             disabled={!props.purchasable}  
-            onClick={props.ordered}>{props.isAuth ? 'ORDER NOW' : 'SIGN UP TO ORDER'}</button>
+            onClick={props.ordered}>{props.isAuth ? 'ORDER NOW' : 'SIGN UP TO ORDER'}</Button>
     </div>
 );
 
-export default buildControls;
+export default withStyles(styles)(buildControls);

@@ -3,18 +3,20 @@
     margin: 0 auto 1px auto;
     height: 200px;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     text-align: center;
     font-weight: bold;
     font-size: 1.2rem;
 }
 
-::-webkit-scrollbar {
-    width: 0px;
+/* ::-webkit-scrollbar {
+    height: 0;
     /* remove scrollbar space */
-    background: transparent;
-    /* optional: just make scrollbar invisible */
-}
+    /* width: 0; */
+    /* background: transparent; */
+    /* background-color: #aaa; */
+    /* optional: just make scrollbar invisible 
+} */
 
 @media (min-width: 300px) and (min-height: 400px) {
     .Burger {
@@ -89,7 +91,7 @@
 @media (min-width: 1000px) and (min-height: 700px) {
     .Burger {
         width: 500px;
-        height: 500px;
+        height: 470px;
     }
 }
 
