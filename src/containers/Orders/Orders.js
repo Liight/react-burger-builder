@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import classes from './Orders.css';
 
 import Order from '../../components/Order/Order';
 import axios from '../../axios-orders';
@@ -26,7 +27,8 @@ class Orders extends Component {
             );
         }
         return (
-            <div>
+            <div className={classes.ordersContainer}>
+            <h1>Your previous burger orders</h1>
                 {orders}
             </div>
         );

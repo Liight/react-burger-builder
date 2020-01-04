@@ -18,7 +18,7 @@ const order = (props) => {
                 textTransform: 'capitalize', 
                 display: 'inline block',
                 margin: '0 8px 3px 0px',
-                border: '1px solid #ccc',
+                // border: '1px solid #ccc',
                 padding: '0px'
             }}
             key={ig.name}>{ig.name} ({ig.amount})</span>;
