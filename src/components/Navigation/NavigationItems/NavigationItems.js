@@ -1,17 +1,28 @@
 import React from 'react'
 
-import classes from '../NavigationItems/NavigationItems.css';
+import customStyles from '../NavigationItems/NavigationItems.css';
 import NavigationItem from './NavigationItem/NavigationItem';
 
+// Material UI
+import { withStyles } from "@material-ui/styles";
+import 'typeface-roboto';
+import Typography from '@material-ui/core/Typography';
+
+const styles = () => ({
+    typography: {
+        fontSize: "1.4em",
+    }
+});
+
 const navigationItems = ( props ) => (
-    <ul className={classes.NavigationItems}>
-        <NavigationItem link="/" exact>Burger Builder</NavigationItem>
-        { props.isAuthenticated ? <NavigationItem link="/orders" >Orders</NavigationItem> : null}
+    <ul className={customStyles.NavigationItems}>
+        <NavigationItem link="/" exact><Typography className={props.classes.typography}>Burger Builder</Typography></NavigationItem>
+        {props.isAuthenticated ? <NavigationItem link="/orders" ><Typography className={props.classes.typography}>Orders</Typography></NavigationItem> : null}
         { !props.isAuthenticated 
-            ? <NavigationItem link="/auth" >Authenticate</NavigationItem>
-            : <NavigationItem link="/logout" >Logout</NavigationItem>
+            ? <NavigationItem link="/auth" ><Typography className={props.classes.typography}>Authenticate</Typography></NavigationItem>
+            : <NavigationItem link="/logout" ><Typography className={props.classes.typography}>Logout</Typography></NavigationItem>
         }
     </ul>
 );
 
-export default navigationItems;
+export default withStyles(styles)(navigationItems);
