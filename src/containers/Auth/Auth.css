@@ -1,11 +1,21 @@
 .Auth {
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    justify-content: center;
     margin: 20px auto;
     width: 80%;
+    min-height: 300px;
     text-align: center;
     box-shadow: 0 2px 3px #ccc;
     border: 1px solid #eee;
     padding: 10px;
     box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.9)
+}
+
+.authForm {
+    margin: 0px 0px 20px 0px;
 }
 
 @media (min-width: 500px) {

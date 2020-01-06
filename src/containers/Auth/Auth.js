@@ -129,12 +129,13 @@ class Auth extends Component {
             <div className={classes.Auth}>
             {authRedirect}
             {errorMessage}
-                <form onSubmit={this.submitHandler}>
+                <form onSubmit={this.submitHandler} className={classes.authForm}>
                     {form}
                     <Button
                     btnType="Success" clicked={this.submitHandler}>SUBMIT</Button>
                 </form>
                 <Button 
+                    
                     clicked={this.switchAuthModeHandler}
                     btnType="Danger">SWITCH TO {this.state.isSignup ? 'SIGN IN' : 'SIGN UP'}</Button>
             </div>

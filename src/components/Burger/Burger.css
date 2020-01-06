@@ -7,20 +7,13 @@
     text-align: center;
     font-weight: bold;
     font-size: 1.2rem;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 1em;
 }
 
 .Burger p {
     font-size: 1.4em;
 }
-
-/* ::-webkit-scrollbar {
-    height: 0;
-    /* remove scrollbar space */
-    /* width: 0; */
-    /* background: transparent; */
-    /* background-color: #aaa; */
-    /* optional: just make scrollbar invisible 
-} */
 
 @media (min-width: 300px) and (min-height: 400px) {
     .Burger {

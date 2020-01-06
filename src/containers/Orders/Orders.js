@@ -17,11 +17,12 @@ import Container from '@material-ui/core/Container';
 const styles = () => ({
     container: {
         backgroundColor: "#fff",
-        height: "100%",
+        maxHeight: "85vh",
         width: "100%",
         padding: 5,
         marginTop: 0,
         border: "1 px solid #f5f5f5",
+        overflowY: "scroll"
     },
     typography: {
         textAlign: "center",

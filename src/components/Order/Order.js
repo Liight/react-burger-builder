@@ -12,7 +12,7 @@ import Paper from '@material-ui/core/Paper';
 const styles = () => ({
     container: {
         backgroundColor: "#fff",
-        height: "100%",
+        height: "",
         width: "100%",
         padding: 0,
         marginTop: 0,

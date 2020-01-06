@@ -4,25 +4,26 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #703b09;
+    /* background-color: #703b09; */
+    background-color: #e4002b;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     box-sizing: border-box;
     z-index: 90;
+    border-bottom: 1px solid #000000;
 }
 
 .Toolbar nav {
     height: 100%;
-    
 }
 
 .Logo {
     height: 80%;
 }
 
-@media(max-width: 499px){
+@media(max-width: 499px) {
     .DesktopOnly {
         display: none;
     }

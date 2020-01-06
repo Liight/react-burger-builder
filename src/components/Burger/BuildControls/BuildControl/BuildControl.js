@@ -18,16 +18,18 @@ const styles = () => ({
 
 const buildControl = (props) => (
     <div className={customStyles.BuildControl}>
-        <div className={customStyles.Label}><Typography className={props.classes.typography}>{props.label}</Typography></div>
-        <Button 
-            className={[customStyles.Less]} 
-            onClick={props.removed} 
-            disabled={props.disabled}
-            aria-label="less"><Typography className={props.classes.typography}>Less</Typography></Button>
-        <Button 
-            className={[customStyles.More]} 
-            onClick={props.added}
+        
+            <div className={customStyles.Label}><Typography className={props.classes.typography}>{props.label}</Typography></div>
+            <Button
+                className={customStyles.Less}
+                onClick={props.removed}
+                disabled={props.disabled}
+                aria-label="less"><Typography className={props.classes.typography}>Less</Typography></Button>
+            <Button
+                className={customStyles.More}
+                onClick={props.added}
                 aria-label="more"><Typography className={props.classes.typography}>More</Typography></Button>
+       
     </div>
 );
 
