@@ -22,7 +22,7 @@ const styles = () => ({
         padding: 5,
         marginTop: 0,
         border: "1 px solid #f5f5f5",
-        overflowY: "scroll"
+        // overflowY: "scroll"
     },
     typography: {
         textAlign: "center",

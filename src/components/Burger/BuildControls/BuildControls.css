@@ -65,9 +65,31 @@
         animation: enable 0.3s linear;
     }
     
+    @media screen and (max-width:1000px) {
+        .BuildControlsInner {
+            width: 100%;
+            max-width: 450px;
+        }
+    }
+    
     @media screen and (max-width:800px) {
         .BuildControlsInner {
             width: 100%;
+            max-width: 450px;
+        }
+    }
+    
+    @media screen and (max-width:500px) {
+        .BuildControlsInner {
+            width: 100%;
+            max-width: 370px;
+        }
+    }
+    
+    @media screen and (max-width:400px) {
+        .BuildControlsInner {
+            width: 100%;
+            max-width: 300px;
         }
     }
     
