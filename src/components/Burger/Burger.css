@@ -1,14 +1,23 @@
 .Burger {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    /* justify-content: flex-end; */
     width: 100%;
     margin: 0 auto 1px auto;
+    min-height: 0px;
     height: 200px;
     overflow-x: hidden;
     overflow-y: auto;
     text-align: center;
     font-weight: bold;
     font-size: 1.2rem;
-    background-color: rgba(255,255,255,0.8);
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 1em;
+}
+/* Workaround to emulate ' justify-content: flex-end ' on .Burger class so the scrollbar works as intended */
+.Burger > :first-child {
+    margin-top: auto !important;
 }
 
 .Burger p {
