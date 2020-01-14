@@ -19,7 +19,7 @@ const navigationItems = ( props ) => (
         <NavigationItem link="/" exact><Typography className={props.classes.typography}>Burger Builder</Typography></NavigationItem>
         {props.isAuthenticated ? <NavigationItem link="/orders" ><Typography className={props.classes.typography}>Orders</Typography></NavigationItem> : null}
         { !props.isAuthenticated 
-            ? <NavigationItem link="/auth" ><Typography className={props.classes.typography}>Authenticate</Typography></NavigationItem>
+            ? <NavigationItem link="/auth" ><Typography className={props.classes.typography}>Sign Up / Login</Typography></NavigationItem>
             : <NavigationItem link="/logout" ><Typography className={props.classes.typography}>Logout</Typography></NavigationItem>
         }
     </ul>

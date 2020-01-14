@@ -10,23 +10,31 @@
     font: inherit;
     padding: 5px;
     margin: 0 5px;
-    width: 80px;
+    width: 60px;
+    height: 60px;
     border: 1px solid #AA6817;
+    border-radius: 40px;
     background-color: #cf8f2e;
     cursor: pointer;
     outline: none;
 }
 
+.BuildControl button span{
+    
+}
+
 .BuildControl button:disabled {
-    background-color: #AC9980;
+    background-color: rgba(207, 143, 46, 0.35);
     border: 1px solid #7E7365;
     color: #ccc;
-    cursor: default;
+    pointer-events: none;
+    cursor: not-allowed;
 }
 
 .BuildControl button:hover:disabled {
     background-color: #AC9980;
     color: #ccc;
+    pointer-events: none;
     cursor: not-allowed;
 }
 
@@ -39,21 +47,32 @@
 .BuildControl .Less {
     background-color: #e5b73b;
     color: white;
+    display: flex;
 }
 
 .BuildControl .More {
     background-color: #8F5E1E;
     color: white;
+    display: flex;
 }
 
 .BuildControl .Less:hover,
 .BuildControl .Less:active {
     background-color: #DAA972;
-    color: white;
 }
 
 .BuildControl .More:hover,
 .BuildControl .More:active {
     background-color: #99703F;
     color: white;
+}
+
+.burgerIngredientCounter {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
 }

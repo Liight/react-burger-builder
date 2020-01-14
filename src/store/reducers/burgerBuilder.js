@@ -2,7 +2,7 @@ import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../shared/utility';
 
 // note setting ingredients to null will result in an error on the order summary page if navigated to without ingredients
-// this error is handled by rerirecting the user if ingredients are null
+// this error is handled by redirecting the user if ingredients are null
 const initialState = {
     ingredients: null,
     totalPrice: 4,
